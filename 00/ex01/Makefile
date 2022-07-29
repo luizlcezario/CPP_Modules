@@ -2,7 +2,7 @@ CC = g++
 
 NAME = phonelist
 
-FLAGS = -Wall -Wextra -Werror  -std=c++11 -g3
+FLAGS = -Wall -Wextra -Werror  -std=c++11
 
 
 CLASS = PhoneBook.cpp Contact.cpp
