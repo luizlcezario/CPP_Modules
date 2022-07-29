@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/28 12:26:50 by llima-ce          #+#    #+#             */
-/*   Updated: 2022/07/28 18:30:18 by llima-ce         ###   ########.fr       */
+/*   Created: 2022/07/29 09:40:35 by llima-ce          #+#    #+#             */
+/*   Updated: 2022/07/29 10:21:17 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
+
+# include <iostream>
+using std::cin;
+using std::cout;
+using std::endl;
+using std::string;
+
 /**
-  @brief PhoneBook
-	It has an array of contacts.
-	It can store a maximum of 8 contacts. If the user tries to add a 9th
-		contact, replace the oldest one by the new one.
-	Please note that dynamic allocation is forbidden.
+ * @brief Class that representation of a Contact for a list of Contacts.
  */
-#include <iostream>
-using std::string
-class PhoneBook {
-	public:
-		string	Name;
-		string	Company;
-		PhoneBook(string Name, String Company) {
-			
-		}
+class Contact
+{
+public:
+	string	FirstName;
+	string	LastName;
+	string	Nickname;
+	string	PhoneNumber;
+	string	DarkestSecret;
+	// constructor
+	Contact();
+	// view contact
+	void DisplayContact();
 };
+
+#endif

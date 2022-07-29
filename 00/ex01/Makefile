@@ -2,12 +2,15 @@ CC = g++
 
 NAME = phonelist
 
-FLAGS = -Wall -Wextra -Werror -std=c++11 -g3
+FLAGS = -Wall -Wextra -Werror  -std=c++11 -g3
 
-SRC =  main.cpp
+
+CLASS = PhoneBook.cpp Contact.cpp
+
+SRC =  main.cpp $(addprefix class/, $(CLASS))
 
 all: 
-	${CC} ${FLAGS} ${SRC} -o $(NAME)
+	${CC} -I ./class ${FLAGS} ${SRC} -o $(NAME)
 
 
 .PHONY: all
