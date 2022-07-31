@@ -6,8 +6,25 @@ CFlAGS = -Wall -Wextra -Werror -std=c++11
 
 SRC = main.cpp  Zombie.cpp zombieHorde.cpp
 
-all: 
-	${CC} ${CFLAGS} ${SRC} -o $(NAME)
+OBJSDIR = obj/
+OBJS = $(SRC:%.cpp=%.o)
 
+all: $(OBJS)
+	${CC} ${CFLAGS} ${addprefix $(OBJSDIR), $(OBJS)} -o $(NAME)
 
-.PHONY: all
+$(OBJS): $(OBJSDIR) $(SRC)
+	$(CC) ${CFLAGS} -c $(SRC)
+	mv $(OBJS) $(OBJSDIR)
+
+$(OBJSDIR):
+	mkdir -p $(OBJSDIR)
+
+clean:
+	rm -rf $(OBJSDIR)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re

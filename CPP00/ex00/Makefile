@@ -2,12 +2,27 @@ CC = g++
 
 NAME = megaphone
 
-CFlAGS = -Wall -Wextra -Werror -std=c++11
-
 SRC =  megaphone.cpp
+CFlAGS = -Wall -Wextra -Werror -std=c++11
+OBJSDIR = obj/
+OBJS = $(SRC:%.cpp=%.o)
 
-all: 
-	${CC} ${CFLAGS} ${SRC} -o $(NAME)
+all: $(OBJS)
+	${CC} ${CFLAGS} ${addprefix $(OBJSDIR), $(OBJS)} -o $(NAME)
 
+$(OBJS): $(OBJSDIR) $(SRC)
+	$(CC) ${CFLAGS} -c $(SRC)
+	mv $(OBJS) $(OBJSDIR)
 
-.PHONY: all
+$(OBJSDIR):
+	mkdir -p $(OBJSDIR)
+
+clean:
+	rm -rf $(OBJSDIR)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re
