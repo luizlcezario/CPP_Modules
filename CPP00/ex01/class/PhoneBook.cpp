@@ -6,11 +6,23 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 12:26:50 by llima-ce          #+#    #+#             */
-/*   Updated: 2022/07/29 10:27:25 by llima-ce         ###   ########.fr       */
+/*   Updated: 2022/08/02 20:48:54 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+
+PhoneBook::PhoneBook() {
+	now = 0;
+}
+
+PhoneBook::~PhoneBook() {
+	while (now > 0) {
+		now--;
+		delete contacts[now];
+	}
+}
+
 /**
  * @brief private function to format and print the infos for the view of 
  * Contacts
@@ -28,11 +40,17 @@ void	PhoneBook::PrintValue(string str) {
  * 
  */
 void	PhoneBook::AddContact() {
-	Contact	contact = Contact();
+	Contact	*contact = new Contact();
 
-	contacts.push_back(contact);
-	if (contacts.size() > 8)
-		contacts.pop_front();
+	if (now > 7) {
+		delete contacts[1];
+		for (int i = 1; i < now; i++) {
+			contacts[i] = contacts[i + 1];
+		}
+		now--;
+	}
+	contacts[now] = contact;
+	now++;
 }
 
 /**
@@ -46,12 +64,12 @@ void	PhoneBook::DisplayPhoneList() {
 	cout << setfill('_') << setw(45) << "_" << endl;
 	cout << "|  index   |first name|last name | nickname |"<< endl;
 	cout << setfill('-') << setw(45) << "-" << endl;
-	for (Contact tmp: contacts) {
+	for (int i = 0; i < now; i++) {
 		cout << "|";
 		PrintValue(index);
-		PrintValue(tmp.FirstName);
-		PrintValue(tmp.LastName);
-		PrintValue(tmp.Nickname);
+		PrintValue(contacts[i]->FirstName);
+		PrintValue(contacts[i]->LastName);
+		PrintValue(contacts[i]->Nickname);
 		cout << endl;
 		cout << setw(45) <<  setfill('-') << "-" << endl;
 		index[0] = index[0] + 1;
@@ -59,15 +77,13 @@ void	PhoneBook::DisplayPhoneList() {
 }
 
 void	PhoneBook::SelectContact() {
-	std::list<Contact>::iterator	it = contacts.begin();
-	size_t							num_contact = 0;
+	int		num_contact = 0;
 
-	while (0 == num_contact || num_contact > contacts.size()) {
-	cin >> num_contact;
-	if(!(0 != num_contact && num_contact < contacts.size()))
-		cout<< "please give a valid index"<<endl;
+	while ( num_contact == 0 || num_contact > now ) {
+		if ( num_contact != 0 )
+			cout<< "please give a valid index"<<endl;
+		cin >> num_contact;
 	}
-	std::advance(it, num_contact - 1);
-	it->Contact::DisplayContact();
+	contacts[num_contact - 1]->DisplayContact();
 }
 

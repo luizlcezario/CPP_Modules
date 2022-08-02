@@ -6,14 +6,13 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 09:38:34 by llima-ce          #+#    #+#             */
-/*   Updated: 2022/07/29 10:27:35 by llima-ce         ###   ########.fr       */
+/*   Updated: 2022/08/02 20:51:58 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 # include <iostream>
-# include <list>
 # include <iomanip>
 # include "Contact.hpp"
 using std::string;
@@ -25,9 +24,12 @@ using std::endl;
 
 class PhoneBook {
 	private:
-		std::list<Contact> contacts;
+		int		now;
+		Contact	*contacts[8];
 		void	PrintValue(string str);
 	public:
+		PhoneBook();
+		~PhoneBook();
 		void	AddContact();
 		void	DisplayPhoneList();
 		void	SelectContact();
