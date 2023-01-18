@@ -1,30 +1,35 @@
-CC = g++
-NAME = phonelist
-FLAGS = -Wall -Wextra -Werror  -std=c++11 -I class
-CLASS = PhoneBook.cpp Contact.cpp
-MAIN = main.cpp
-SRC =  $(MAIN) $(addprefix class/, $(CLASS))
-OBJS	= $(CLASS:%.cpp=%.o)
-OBJSDIR	= obj/
-HEADER = class
-all: $(NAME)
+NAME			=	phonelist
+SRC				=	Contact.cpp main.cpp PhoneBook.cpp
 
-$(NAME): $(OBJS)
-	${CC} -I $(HEADER) ${addprefix $(OBJSDIR), $(OBJS)} $(MAIN) ${FLAGS} -o $(NAME)
+SOURCES_DIR		=	./
 
-$(OBJS): $(OBJSDIR) 
-	$(CC) -I $(HEADER) $(FLAGS) -c $(addprefix class/, $(CLASS))
-	mv $(OBJS) $(OBJSDIR)
+OBJ_DIR			=	obj
 
-$(OBJSDIR):
-	mkdir -p $(OBJSDIR)
+SOURCES			=	$(addprefix $(SOURCES_DIR)/, $(SRC))
+
+OBJS			=	$(SOURCES:$(SOURCES_DIR)/%.cpp=$(OBJ_DIR)/%.o)
+
+CC				=	c++
+CFLAGS			=	-Wall -Wextra -Werror -std=c++98 -pedantic-errors -g3
+
+
+$(OBJ_DIR)/%.o:		$(SOURCES_DIR)/%.cpp
+					$(CC) $(CFLAGS) -c $< -o $@
+
+all:				$(NAME)
+
+$(NAME):			$(OBJ_DIR) $(OBJS)
+					$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
+$(OBJ_DIR):
+					mkdir -p $(OBJ_DIR)
 
 clean:
-	rm -rf $(OBJSDIR)
+					rm -rf $(OBJ_DIR)
 
-fclean: clean
-	rm -f $(NAME)
+fclean:				clean
+					rm -rf $(NAME)
 
-re: fclean all
+re:					fclean all
 
-.PHONY: all clean fclean re
+.PHONY:				all clean fclean re

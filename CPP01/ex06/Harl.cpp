@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 21:58:25 by llima-ce          #+#    #+#             */
-/*   Updated: 2022/08/01 23:26:43 by llima-ce         ###   ########.fr       */
+/*   Updated: 2023/01/18 14:26:53 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ void Harl::debug(void) {
 void Harl::complain(std::string level) {
 	int i;
 
-	for (int i = 0; i < 4; i++) {
+	i = 0;
+	for (; i < 4; i++) {
 		if (level.compare(levels[i])) {
 			break;
 		}

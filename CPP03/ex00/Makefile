@@ -1,5 +1,4 @@
-NAME			=	account
-SRC				=	Account.cpp tests.cpp
+SRC	=	main.cpp ClapTrap.cpp
 
 SOURCES_DIR		=	./
 
@@ -9,6 +8,7 @@ SOURCES			=	$(addprefix $(SOURCES_DIR)/, $(SRC))
 
 OBJS			=	$(SOURCES:$(SOURCES_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
+NAME			=	CLAPTRAP
 CC				=	c++
 CFLAGS			=	-Wall -Wextra -Werror -std=c++98 -pedantic-errors -g3
 

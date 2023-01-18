@@ -1,28 +1,35 @@
-CC = g++
+NAME			=	megaphone
+SRC				=	megaphone.cpp
 
-NAME = megaphone
+SOURCES_DIR		=	./
 
-SRC =  megaphone.cpp
-CFlAGS = -Wall -Wextra -Werror -std=c++11
-OBJSDIR = obj/
-OBJS = $(SRC:%.cpp=%.o)
+OBJ_DIR			=	obj
 
-all: $(OBJS)
-	${CC} ${CFLAGS} ${addprefix $(OBJSDIR), $(OBJS)} -o $(NAME)
+SOURCES			=	$(addprefix $(SOURCES_DIR)/, $(SRC))
 
-$(OBJS): $(OBJSDIR) $(SRC)
-	$(CC) ${CFLAGS} -c $(SRC)
-	mv $(OBJS) $(OBJSDIR)
+OBJS			=	$(SOURCES:$(SOURCES_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
-$(OBJSDIR):
-	mkdir -p $(OBJSDIR)
+CC				=	c++
+CFLAGS			=	-Wall -Wextra -Werror -std=c++98 -pedantic-errors -g3
+
+
+$(OBJ_DIR)/%.o:		$(SOURCES_DIR)/%.cpp
+					$(CC) $(CFLAGS) -c $< -o $@
+
+all:				$(NAME)
+
+$(NAME):			$(OBJ_DIR) $(OBJS)
+					$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
+$(OBJ_DIR):
+					mkdir -p $(OBJ_DIR)
 
 clean:
-	rm -rf $(OBJSDIR)
+					rm -rf $(OBJ_DIR)
 
-fclean: clean
-	rm -f $(NAME)
+fclean:				clean
+					rm -rf $(NAME)
 
-re: fclean all
+re:					fclean all
 
-.PHONY: all clean fclean re
+.PHONY:				all clean fclean re

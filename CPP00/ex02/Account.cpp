@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 10:37:01 by llima-ce          #+#    #+#             */
-/*   Updated: 2022/07/29 19:54:35 by llima-ce         ###   ########.fr       */
+/*   Updated: 2023/01/18 14:47:46 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int		Account::getNbDeposits( void ) {
 
 int		Account::getNbWithdrawals( void ) {
 	return (Account::_totalNbWithdrawals);
-};
+}
 
 void	Account::displayAccountsInfos( void ) {
 	_displayTimestamp();
@@ -78,7 +78,7 @@ void	Account::displayAccountsInfos( void ) {
 // methods public
 int		Account::checkAmount( void ) const {
 	return this->_amount;
-};
+}
 
 void	Account::makeDeposit(int deposit ) {
 	this->_amount += deposit;
@@ -119,4 +119,4 @@ void	Account::displayStatus( void ) const {
 
 void	Account::_displayTimestamp( void ) {
 		std::cout << "[19920104_091532] ";
-};
+}

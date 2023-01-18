@@ -1,30 +1,35 @@
-CC = g++
+SRC				=	main.cpp Harl.cpp
 
-NAME = harlFilter
+SOURCES_DIR		=	./
 
-CFlAGS = -Wall -Wextra -Werror -std=c++11
+OBJ_DIR			=	Harl
 
-SRC = main.cpp Harl.cpp
+SOURCES			=	$(addprefix $(SOURCES_DIR)/, $(SRC))
 
-OBJSDIR = obj/
-OBJS = $(SRC:%.cpp=%.o)
+OBJS			=	$(SOURCES:$(SOURCES_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
-all: $(OBJS)
-	${CC} ${CFLAGS} ${addprefix $(OBJSDIR), $(OBJS)} -o $(NAME)
+NAME			=	Fixed
+CC				=	c++
+CFLAGS			=	-Wall -Wextra -Werror -std=c++98 -pedantic-errors -g3
 
-$(OBJS): $(OBJSDIR) $(SRC)
-	$(CC) ${CFLAGS} -c $(SRC)
-	mv $(OBJS) $(OBJSDIR)
 
-$(OBJSDIR):
-	mkdir -p $(OBJSDIR)
+$(OBJ_DIR)/%.o:		$(SOURCES_DIR)/%.cpp
+					$(CC) $(CFLAGS) -c $< -o $@
+
+all:				$(NAME)
+
+$(NAME):			$(OBJ_DIR) $(OBJS)
+					$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
+$(OBJ_DIR):
+					mkdir -p $(OBJ_DIR)
 
 clean:
-	rm -rf $(OBJSDIR)
+					rm -rf $(OBJ_DIR)
 
-fclean: clean
-	rm -f $(NAME)
+fclean:				clean
+					rm -rf $(NAME)
 
-re: fclean all
+re:					fclean all
 
-.PHONY: all clean fclean re
+.PHONY:				all clean fclean re
