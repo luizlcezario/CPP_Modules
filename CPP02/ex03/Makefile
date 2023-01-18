@@ -4,7 +4,7 @@ NAME = Fixed
 
 CFlAGS = -Wall -Wextra -Werror -std=c++11
 
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp Fixed.cpp Point.cpp bsp.cpp
 
 OBJSDIR = obj/
 OBJS = $(SRC:%.cpp=%.o)
