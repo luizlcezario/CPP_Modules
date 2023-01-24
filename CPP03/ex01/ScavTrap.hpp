@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 11:29:23 by llima-ce          #+#    #+#             */
-/*   Updated: 2023/01/24 11:53:57 by llima-ce         ###   ########.fr       */
+/*   Updated: 2023/01/24 18:41:35 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class ScavTrap : public ClapTrap
 		~ScavTrap();
 		
 		ScavTrap & operator=(ScavTrap const & rhs);
-		
+		void attack(std::string const & target);
 		void guardGate() const;
 	private:
 		bool _isGateKeeper;

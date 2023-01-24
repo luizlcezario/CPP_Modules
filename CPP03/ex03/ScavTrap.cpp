@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 11:33:33 by llima-ce          #+#    #+#             */
-/*   Updated: 2023/01/24 15:03:21 by llima-ce         ###   ########.fr       */
+/*   Updated: 2023/01/24 18:45:00 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,15 @@ void ScavTrap::guardGate() const {
 	else {
 		std::cout << "ScavTrap " << this->getName() << " is dead!" << std::endl;
 	}
+}
 
+void	ScavTrap::attack(std::string const & target) {
+	if (this->getEnergyP() > 0 && this->getHitP() > 0) {
+		std::cout << "ScavTrap " << this->getName() << " attacks " << target << ", causing " << this->getAttackD() << " points of damage!" << std::endl;
+		this->setEnergyP(this->getEnergyP() - 1);
+	} else if (this->getEnergyP() < 0) {
+		std::cout << "ScavTrap " << this->getName() << " is out of energy!" << std::endl;
+	} else {
+		std::cout << "ScavTrap " << this->getName() << " is dead!" << std::endl;
+	}
 }

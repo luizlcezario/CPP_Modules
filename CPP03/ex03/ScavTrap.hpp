@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 11:29:23 by llima-ce          #+#    #+#             */
-/*   Updated: 2023/01/24 11:53:57 by llima-ce         ###   ########.fr       */
+/*   Updated: 2023/01/24 19:05:26 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <iostream>
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
 	public:
 		ScavTrap();
@@ -25,7 +25,7 @@ class ScavTrap : public ClapTrap
 		~ScavTrap();
 		
 		ScavTrap & operator=(ScavTrap const & rhs);
-		
+		void attack(std::string const & target);
 		void guardGate() const;
 	private:
 		bool _isGateKeeper;

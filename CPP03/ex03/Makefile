@@ -1,4 +1,4 @@
-SRC	=	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+SRC	=	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 
 SOURCES_DIR		=	./
 
@@ -10,7 +10,8 @@ OBJS			=	$(SOURCES:$(SOURCES_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
 NAME			=	CLAPTRAP
 CC				=	c++
-CFLAGS			=	-Wall -Wextra -Werror -std=c++98 -pedantic-errors -g3
+CFLAGS			=	-Wall -Wextra -Werror -std=c++98 -pedantic-errors -g3 \
+					-Wshadow -Wno-shadow
 
 
 $(OBJ_DIR)/%.o:		$(SOURCES_DIR)/%.cpp
