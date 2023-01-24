@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:47:05 by llima-ce          #+#    #+#             */
-/*   Updated: 2023/01/20 18:29:17 by llima-ce         ###   ########.fr       */
+/*   Updated: 2023/01/24 12:05:59 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,10 @@ ClapTrap::ClapTrap(const ClapTrap &src) {
 ClapTrap &ClapTrap::operator=(const ClapTrap &src) {
 	std::cout << "ClapTrap assignation operator called" << std::endl;
 	if (this != &src) {
-		_hitPoints = src._hitPoints;
-		_energyPoints = src._energyPoints;
-		_attackDamage = src._attackDamage;
+		const_cast<std::string &>(this->_name) = src.getName();
+		this->_hitPoints = src.getHitP();
+		this->_energyPoints = src.getEnergyP();
+		this->_attackDamage = src.getAttackD();
 	}
 	return *this;
 }

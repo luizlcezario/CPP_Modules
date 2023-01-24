@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 14:52:16 by llima-ce          #+#    #+#             */
-/*   Updated: 2023/01/24 12:08:16 by llima-ce         ###   ########.fr       */
+/*   Updated: 2023/01/24 12:16:18 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 
 typedef enum e_claptrap_types{
 	SCAVTRAP = 2,
-	CLAPTRAP = 1
+	CLAPTRAP = 1,
+	FRAGTRAP = 3
 } t_claptrap_types;
 
 class ClapTrap {

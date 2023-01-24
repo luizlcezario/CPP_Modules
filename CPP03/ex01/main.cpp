@@ -6,19 +6,21 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 14:10:38 by llima-ce          #+#    #+#             */
-/*   Updated: 2023/01/20 18:22:03 by llima-ce         ###   ########.fr       */
+/*   Updated: 2023/01/24 14:54:15 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main(void) {
-	ClapTrap clap1;
-	ClapTrap clap2("ClapTrap");
-	ClapTrap clap3("ClapTrap2");
+	ScavTrap clap;
+	ScavTrap clap1("Test 1");
+	ScavTrap clap3("Test 2");
+	ScavTrap clap2(clap3);
 
-	clap1.attack("ClapTrap2");
-	clap2.attack("ClapTrap");
+	clap3 = clap1;
+	clap3.guardGate();
+	clap1.guardGate();
 	return 0;
 }
