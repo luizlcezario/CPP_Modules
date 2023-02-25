@@ -29,6 +29,8 @@ class PhoneBook {
 		void	PrintValue(string str);
 	public:
 		PhoneBook();
+		PhoneBook(PhoneBook const &src);
+		PhoneBook &operator=(PhoneBook const &rhs);
 		~PhoneBook();
 		void	AddContact();
 		void	DisplayPhoneList();

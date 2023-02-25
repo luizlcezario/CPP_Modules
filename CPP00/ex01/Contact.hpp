@@ -19,21 +19,34 @@ using std::cout;
 using std::endl;
 using std::string;
 
+typedef enum {
+	NAME,
+	PHONE,
+	OTHER
+} e_field;
 /**
  * @brief Class that representation of a Contact for a list of Contacts.
  */
 class Contact
 {
 public:
-	string	FirstName;
-	string	LastName;
-	string	Nickname;
-	string	PhoneNumber;
-	string	DarkestSecret;
-	// constructor
 	Contact();
-	// view contact
-	void DisplayContact();
+	Contact(Contact const &src);
+	~Contact();
+	Contact &operator=(Contact const &rhs);
+	void	displayContact();
+	string	getFirstName();
+	string	getLastName();
+	string	getNickname();
+	string	getPhoneNumber();
+	string	getDarkestSecret();
+private:
+	static string	validationField(string field, e_field type = OTHER);
+	string			FirstName;
+	string			LastName;
+	string			Nickname;
+	string			PhoneNumber;
+	string			DarkestSecret;
 };
 
 #endif

@@ -23,6 +23,20 @@ PhoneBook::~PhoneBook() {
 	}
 }
 
+PhoneBook::PhoneBook(PhoneBook const &src) {
+	*this = src;
+}
+
+PhoneBook &PhoneBook::operator=(PhoneBook const &rhs) {
+	if (this != &rhs) {
+		this->now = rhs.now;
+		for (int i = 0; i < now; i++) {
+			this->contacts[i] = rhs.contacts[i];
+		}
+	}
+	return *this;
+}
+
 /**
  * @brief private function to format and print the infos for the view of 
  * Contacts
@@ -67,9 +81,9 @@ void	PhoneBook::DisplayPhoneList() {
 	for (int i = 0; i < now; i++) {
 		cout << "|";
 		PrintValue(index);
-		PrintValue(contacts[i]->FirstName);
-		PrintValue(contacts[i]->LastName);
-		PrintValue(contacts[i]->Nickname);
+		PrintValue(contacts[i]->getFirstName());
+		PrintValue(contacts[i]->getLastName());
+		PrintValue(contacts[i]->getNickname());
 		cout << endl;
 		cout << setw(45) <<  setfill('-') << "-" << endl;
 		index[0] = index[0] + 1;
@@ -79,11 +93,15 @@ void	PhoneBook::DisplayPhoneList() {
 void	PhoneBook::SelectContact() {
 	int		num_contact = 0;
 
+	if (now == 0) {
+		cout << "No contacts to display" << endl;
+		return ;
+	}
 	while ( num_contact == 0 || num_contact > now ) {
 		if ( num_contact != 0 )
 			cout<< "please give a valid index"<<endl;
 		cin >> num_contact;
 	}
-	contacts[num_contact - 1]->DisplayContact();
+	contacts[num_contact - 1]->displayContact();
 }
 
