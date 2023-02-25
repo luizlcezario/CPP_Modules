@@ -51,8 +51,7 @@ Account::~Account( void ) {
 	_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex << ";amount:"
 		<< this->_amount << ";closed";
-	if (_nbAccounts != 0)
-		std::cout << std::endl;
+	std::cout << std::endl;
 }
 // static methods
 int		Account::getNbAccounts( void ) {
