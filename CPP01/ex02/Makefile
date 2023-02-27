@@ -10,7 +10,7 @@ SOURCES			=	$(addprefix $(SOURCES_DIR)/, $(SRC))
 OBJS			=	$(SOURCES:$(SOURCES_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
 CC				=	c++
-CFLAGS			=	-Wall -Wextra -Werror -std=c++98 -pedantic-errors -g3
+CFLAGS			=	-Wall -Wextra -Werror -std=c++98   -g3
 
 
 $(OBJ_DIR)/%.o:		$(SOURCES_DIR)/%.cpp

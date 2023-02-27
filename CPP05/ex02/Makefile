@@ -1,8 +1,9 @@
 NAME			=	Bureaucrat
 CC				=	c++
-CFLAGS			=	-Wall -Wextra -Werror -std=c++98 -pedantic-errors -g3
+CFLAGS			=	-Wall -Wextra -Werror -std=c++98 -g3
 
-CLASS			=	Bureaucrat.cpp Form.cpp
+CLASS			=	Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp \
+					RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
 
 HEADER			=	-I ./header
 

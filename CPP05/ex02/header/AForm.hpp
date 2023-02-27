@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 14:59:11 by llima-ce          #+#    #+#             */
-/*   Updated: 2023/01/26 15:34:05 by llima-ce         ###   ########.fr       */
+/*   Updated: 2023/02/26 23:11:33 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 # include <iostream>
 # include <string>
@@ -20,19 +20,19 @@
 
 class Bureaucrat;
 
-class Form {
+class AForm {
 	private:
 		std::string const	_name;
 		bool				_signed;
 		size_t				_gradeToSign;
 		size_t				_gradeToExecute;
 	public:
-		Form();
-		explicit Form(std::string name, size_t gradeToSign, size_t gradeToExecute);
-		Form(Form const &src);
-		~Form();
-		
-		Form &operator=(Form const &rhs);
+		virtual void execute(Bureaucrat const &executor) const = 0;
+		AForm();
+		explicit AForm(std::string name, size_t gradeToSign, size_t gradeToExecute);
+		AForm(AForm const &src);
+		~AForm();
+		AForm &operator=(AForm const &rhs);
 
 		std::string	getName() const;
 		bool		getSigned() const;
@@ -48,8 +48,13 @@ class Form {
 		public:
 			const char* what(void) const throw();
 		};
+		
+		class FormNotSignedException : public std::exception {
+		public:
+			const char* what(void) const throw();
+		};
 };
 
-std::ostream &operator<<(std::ostream &out, Form const &rhs);
+std::ostream &operator<<(std::ostream &out, AForm const &rhs);
 
 #endif

@@ -1,6 +1,6 @@
 NAME			=	Bureaucrat
 CC				=	c++
-CFLAGS			=	-Wall -Wextra -Werror -std=c++98 -pedantic-errors -g3
+CFLAGS			=	-Wall -Wextra -Werror -std=c++98 -g3
 
 CLASS			=	Bureaucrat.cpp
 
