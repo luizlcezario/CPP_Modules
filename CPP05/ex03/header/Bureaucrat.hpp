@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 14:34:32 by llima-ce          #+#    #+#             */
-/*   Updated: 2023/02/27 00:28:25 by llima-ce         ###   ########.fr       */
+/*   Updated: 2023/02/26 23:09:18 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ class Bureaucrat {
 		size_t				_grade;
 	public:
 		Bureaucrat();
-		Bureaucrat(std::string name, size_t grade);
+		explicit Bureaucrat(std::string name, size_t grade);
 		Bureaucrat(Bureaucrat const &src);
-		virtual ~Bureaucrat();
+		~Bureaucrat();
 		
 		Bureaucrat &operator=(Bureaucrat const &rhs);
 
