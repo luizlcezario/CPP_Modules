@@ -2,13 +2,13 @@ SRC				=	main.cpp Harl.cpp
 
 SOURCES_DIR		=	./
 
-OBJ_DIR			=	Harl
+OBJ_DIR			=	obj
 
 SOURCES			=	$(addprefix $(SOURCES_DIR)/, $(SRC))
 
 OBJS			=	$(SOURCES:$(SOURCES_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
-NAME			=	Fixed
+NAME			=	harlFilter
 CC				=	c++
 CFLAGS			=	-Wall -Wextra -Werror -std=c++98   -g3
 
