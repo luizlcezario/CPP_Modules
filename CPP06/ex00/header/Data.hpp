@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:25:22 by llima-ce          #+#    #+#             */
-/*   Updated: 2023/02/27 17:38:44 by llima-ce         ###   ########.fr       */
+/*   Updated: 2023/02/28 13:15:44 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define DATA_HPP
 
 # include <iostream>
+# include <cstdlib>
+# include <sstream>
+# include <string>
 
 using std::string;
 
@@ -45,10 +48,10 @@ class Data {
 
 		string		getLiterals() const;
 		e_type		getType() const;
-		char		getC() const;
-		int			getI() const;
-		float		getF() const;
-		double		getD() const;
+		operator	char();
+		operator	int();
+		operator	float();
+		operator	double();
 		void		setLiterals(string literals);
 		static e_type	findType(string literals);
 };

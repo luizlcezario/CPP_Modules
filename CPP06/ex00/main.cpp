@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 14:26:18 by llima-ce          #+#    #+#             */
-/*   Updated: 2023/02/27 19:21:05 by llima-ce         ###   ########.fr       */
+/*   Updated: 2023/02/28 12:58:07 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,14 @@ void test_data_find_type(){
     assertm(Data::findType("'as'") == INV, "Data::findType(\"'as'\") != INV");
     assertm(Data::findType("42..0f") == INV, "Data::findType(\"42..0f\") != INV");
     assertm(Data::findType("42.0ff") == INV, "Data::findType(\"42.0ff\") != INV");
+    assertm(Data::findType("42.f") == INV, "Data::findType(\"42.f\") != INV");
     assertm(Data::findType("") == INV, "Data::findType(\"\") != INV");
     std::cout << "Test Invalid OK\n";
     std::cout << "Test Max\n";
-    assertm(Data::findType("") == INV, "Data::findType(\"\") != INV");
+    assertm(Data::findType("-42.0f") == FLOAT, "Data::findType(\"\") != FLOAT");
+    assertm(Data::findType("-42") == INT, "Data::findType(\"\") != INT");
+    assertm(Data::findType("nan") == DOUBLE, "Data::findType(\"\") != DOUBLE");
+    assertm(Data::findType("+inf") == DOUBLE, "Data::findType(\"\") != DOUBLE");
     std::cout << "Test Max OK\n";
 }
 
@@ -57,4 +61,6 @@ int main(int argc, char* argv[]) {
         std::cerr << "Usage: " << argv[0] << " <literal>\n";
         return 1;
     }
+    Data data(argv[1]);
+    std::cout << "literal: \n" << data.getLiterals() << '\n';
 }
