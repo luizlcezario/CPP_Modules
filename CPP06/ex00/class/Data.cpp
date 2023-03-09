@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:30:24 by llima-ce          #+#    #+#             */
-/*   Updated: 2023/02/28 14:26:01 by llima-ce         ###   ########.fr       */
+/*   Updated: 2023/03/08 15:57:39 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ e_type	Data::findType(string literals) {
 	return (isNumeric[0] ? INT : (isNumeric[1] ? DOUBLE : (isNumeric[2] ? FLOAT : INV)));
 }
 
-operator Data::char() const {
+operator Data::char()  {
 	if (this->_type == INT)
 		return static_cast<char>(this->_i);
 	else if (this->_type == FLOAT)
@@ -105,7 +105,7 @@ operator Data::char() const {
 		return this->_c;
 }
 
-operator Data::int() const {
+operator Data::int() {
 	if (this->_type == CHAR)
 		return static_cast<int>(this->_c);
 	else if (this->_type == FLOAT)
@@ -116,7 +116,7 @@ operator Data::int() const {
 		return this->_i;
 }
 
-operator Data::float() const {
+operator Data::float() {
 	if (this->_type == CHAR)
 		return static_cast<float>(this->_c);
 	else if (this->_type == INT)
@@ -136,6 +136,10 @@ operator Data::double() const {
 		return static_cast<double>(this->_i);
 	else
 		return this->_d;
+}
+
+void Data::printData() {
+	
 }
 
 std::ostream &operator<<(std::ostream &o, Data const &rhs) {

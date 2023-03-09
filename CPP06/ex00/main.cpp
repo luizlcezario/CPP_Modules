@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 14:26:18 by llima-ce          #+#    #+#             */
-/*   Updated: 2023/02/28 12:58:07 by llima-ce         ###   ########.fr       */
+/*   Updated: 2023/03/08 15:54:25 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,7 @@ int main(int argc, char* argv[]) {
         return 1;
     }
     Data data(argv[1]);
-    std::cout << "literal: \n" << data.getLiterals() << '\n';
+
+    
+    std::cout << "char: \n" << (char)data << '\n';
 }
