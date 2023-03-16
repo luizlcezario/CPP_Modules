@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Data.hpp                                           :+:      :+:    :+:   */
+/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:25:22 by llima-ce          #+#    #+#             */
-/*   Updated: 2023/03/08 15:50:41 by llima-ce         ###   ########.fr       */
+/*   Updated: 2023/03/15 18:47:56 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DATA_HPP
-# define DATA_HPP
+#ifndef SCALARCONVERTER_HPP
+# define SCALARCONVERTER_HPP
 
 # include <iostream>
 # include <cstdlib>
 # include <sstream>
 # include <string>
-
-using std::string;
+# include <math.h>
+# include <stdlib.h> 
 
 typedef enum {
 	CHAR,
@@ -28,35 +28,24 @@ typedef enum {
 	INV
 } e_type;
 
-class Data {
+class ScalarConverter {
 	private:
-		string	_literals;
-		e_type		_type;
-		char		_c;
-		int			_i;
-		float		_f;
-		double		_d;
-		void		_convertType();
+		static std::string	_literals;
+		static e_type		_type;
+		static void			_print_c(char c);
+		static void			_print_i(int i);
+		static void			_print_f(float f);
+		static void			_print_d(double d);
 
 	public:
-		Data();
-		explicit Data(string literals);
-		Data(Data const &src);
-		~Data();
-		
-		Data &operator=(Data const &rhs);
-
-		string		getLiterals() const;
-		e_type		getType() const;
-		operator	char();
-		operator	int();
-		operator	float();
-		operator	double();
-		void		setLiterals(string literals);
-		static e_type	findType(string literals);
+		ScalarConverter();
+		ScalarConverter(ScalarConverter const &src);
+		~ScalarConverter();
+		ScalarConverter &operator=(ScalarConverter const &rhs);
+		static void convert(std::string literals);
+		static e_type findType(std::string literals);
 };
 
-std::ostream &operator<<(std::ostream &o, Data const &rhs);
 
 
 #endif

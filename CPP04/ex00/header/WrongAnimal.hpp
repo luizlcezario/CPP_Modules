@@ -6,12 +6,12 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 13:23:32 by llima-ce          #+#    #+#             */
-/*   Updated: 2023/01/25 14:15:32 by llima-ce         ###   ########.fr       */
+/*   Updated: 2023/03/14 22:37:27 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WRONGANIMAL_HPP
-# define WRONGNIMAL_HPP
+# define WRONGANIMAL_HPP
 
 #include <iostream>
 #include <string>
@@ -27,7 +27,7 @@ class WrongAnimal
 		virtual ~WrongAnimal();
 		WrongAnimal &operator=(WrongAnimal const &rhs);
 		std::string getType() const;
-		virtual void makeSound() const;
+		void makeSound() const;
 };
 
 std::ostream &operator<<(std::ostream &o, WrongAnimal const &i);

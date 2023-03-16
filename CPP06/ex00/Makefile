@@ -2,7 +2,7 @@ NAME			=	Convertion
 CC				=	c++
 CFLAGS			=	-Wall -Wextra -Werror -std=c++98 -g3
 
-CLASS			=	Data.cpp
+CLASS			=	ScalarConverter.cpp
 
 HEADER			=	-I ./header 
 
