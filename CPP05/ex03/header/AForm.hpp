@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 14:59:11 by llima-ce          #+#    #+#             */
-/*   Updated: 2023/02/27 00:25:46 by llima-ce         ###   ########.fr       */
+/*   Updated: 2023/03/20 18:15:57 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ class AForm {
 	private:
 		std::string const	_name;
 		bool				_signed;
-		size_t				_gradeToSign;
-		size_t				_gradeToExecute;
+		size_t const		_gradeToSign;
+		size_t const		_gradeToExecute;
 	public:
 		virtual void execute(Bureaucrat const &executor) const = 0;
 		AForm();

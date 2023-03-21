@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 23:36:27 by llima-ce          #+#    #+#             */
-/*   Updated: 2023/02/27 00:18:36 by llima-ce         ###   ########.fr       */
+/*   Updated: 2023/03/20 17:23:47 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ AForm *Intern::makePresidential(std::string target)  {
 
 AForm *Intern::makeForm(std::string form, std::string target) {
 	for (int i = 0; i < 3; i++) {
-		if (form.compare(_forms[i])) {
+		if (!form.compare(_forms[i])) {
 			std::cout << "Intern creates " << form << std::endl;
 			return (_formFunc[i](target));
 		}

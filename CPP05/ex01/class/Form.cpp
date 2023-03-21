@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 15:06:57 by llima-ce          #+#    #+#             */
-/*   Updated: 2023/01/26 15:44:29 by llima-ce         ###   ########.fr       */
+/*   Updated: 2023/03/21 14:39:33 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,16 @@ Form::Form(std::string name, size_t gradeToSign, size_t gradeToExecute) : _name(
 		throw Form::GradeTooLowException();
 }
 
-Form::Form(Form const & src) {
+
+Form::Form(Form const & src) : _name(""), _signed(false), _gradeToSign(0) ,_gradeToExecute(0) 
+{
 	*this = src;
+	if (_gradeToSign < 1 || _gradeToExecute < 1)
+		throw Form::GradeTooHighException();
+	else if (_gradeToSign > 150 || _gradeToExecute > 150)
+		throw Form::GradeTooLowException();
 }
+
 
 Form::~Form() {}
 
@@ -31,8 +38,8 @@ Form &Form::operator=(Form const & rhs) {
 	if (this != &rhs) {
 		const_cast<std::string&> (this->_name) = rhs.getName();
 		this->_signed = rhs.getSigned();
-		this->_gradeToSign = rhs.getGradeToSign();
-		this->_gradeToExecute = rhs.getGradeToExecute();
+		const_cast<size_t&>(this->_gradeToSign) = rhs.getGradeToSign();
+		const_cast<size_t&>(this->_gradeToExecute) = rhs.getGradeToExecute();
 	}
 	return *this;
 }

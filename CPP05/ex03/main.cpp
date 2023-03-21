@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 13:21:44 by llima-ce          #+#    #+#             */
-/*   Updated: 2023/02/27 00:29:11 by llima-ce         ###   ########.fr       */
+/*   Updated: 2023/03/20 17:21:52 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,14 +100,19 @@ void test_ex01(void) {
 }
 
 void test_ex03() {
-  Intern someRandomIntern;
-  AForm *test;
-  
+  Intern		someRandomIntern;
+  AForm 		*test;
+  Bureaucrat	b1("CO", 1);
+
   test = someRandomIntern.makeForm("robotomy request", "Bender");
   std::cout << *test << std::endl;
+  test->beSigned(b1);
+  b1.executeForm(*test);
   delete test;
   test = someRandomIntern.makeForm("presidential pardon", "Mullinete");
   std::cout << *test << std::endl;
+  test->beSigned(b1);
+  b1.executeForm(*test);
   delete test;
 }
 
