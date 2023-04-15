@@ -15,8 +15,7 @@ int main()
 	mstack.push(0);
 	MutantStack<int>::iterator it = mstack.begin();
 	MutantStack<int>::iterator ite = mstack.end();
-	++it;
-	--it;
+	std::cout << "MutantStack<int>::iterator it = mstack.begin();" << std::endl;
 	while (it != ite)
 	{
 		std::cout << *it << std::endl;
@@ -38,6 +37,7 @@ int main()
 	std::list<int>::iterator ite2 = listt.end();
 	++it2;
 	--it2;
+	std::cout << "MutantStack<int>::iterator it = mstack.begin();" << std::endl;
 	while (it2 != ite2)
 	{
 		std::cout << *it2 << std::endl;

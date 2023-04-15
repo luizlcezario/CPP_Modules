@@ -17,12 +17,7 @@ public:
 		}
 	 };
 	Array<T>(const Array<T> &src): _size(src._size), _array(NULL) {
-		if (_size != 0) {
-			_array = new T[_size];
-		}
-		for (unsigned int i = 0; i < _size; i++) {
-			_array[i] = src._array[i];
-		}
+		*this = src;
 	};
 	Array &operator=(const Array &rhs) {
 		if (this != &rhs) {
@@ -37,14 +32,14 @@ public:
 	};
 
 	T &operator[](unsigned int i) {
-		if (i < 0 || i >= _size) {
+		if (i >= _size) {
 			throw std::out_of_range("Array index out of range!\n");
 		}
 		return _array[i];
 	};
 
 	const T &operator[](unsigned int i) const {
-		if (i < 0 || i >= _size) {
+		if (i >= _size) {
 			throw std::out_of_range("Array index out of range!\n");
 		}
 		return _array[i];
