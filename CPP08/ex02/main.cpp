@@ -2,7 +2,7 @@
 # include <list>
 int main()
 {
-	std::cout << "MutantStack<int> mstack;" << std::endl;
+	std::cout << "MutantStack" << std::endl;
 	MutantStack<int> mstack;
 	mstack.push(5);
 	mstack.push(17);
@@ -15,34 +15,34 @@ int main()
 	mstack.push(0);
 	MutantStack<int>::iterator it = mstack.begin();
 	MutantStack<int>::iterator ite = mstack.end();
-	std::cout << "MutantStack<int>::iterator it = mstack.begin();" << std::endl;
+	++it;
+	--it;
 	while (it != ite)
 	{
 		std::cout << *it << std::endl;
 		++it;
 	}
 	std::stack<int> s(mstack);
-	std::cout << "list<int> mstack;" << std::endl;
-	std::list<int> listt;
-	listt.push_back(5);
-	listt.push_back(17);
-	std::cout << listt.front() << std::endl;
-	listt.pop_front();
-	std::cout << listt.size() << std::endl;
-	listt.push_back(3);
-	listt.push_back(5);
-	listt.push_back(737);
-	listt.push_back(0);
-	std::list<int>::iterator it2 = listt.begin();
-	std::list<int>::iterator ite2 = listt.end();
-	++it2;
-	--it2;
-	std::cout << "MutantStack<int>::iterator it = mstack.begin();" << std::endl;
-	while (it2 != ite2)
+	std::cout << "List Stack" << std::endl;
+	std::list<int> tstack;
+	tstack.push_back(5);
+	tstack.push_back(17);
+	std::cout << tstack.back() << std::endl;
+	tstack.pop_back();
+	std::cout << tstack.size() << std::endl;
+	tstack.push_back(3);
+	tstack.push_back(5);
+	tstack.push_back(737);
+	tstack.push_back(0);
+	std::list<int>::iterator it1 = tstack.begin();
+	std::list<int>::iterator ite2 = tstack.end();
+	++it1;
+	--it1;
+	while (it1 != ite2)
 	{
-		std::cout << *it2 << std::endl;
-		++it2;
+		std::cout << *it1 << std::endl;
+		++it1;
 	}
-	std::list<int> s2(listt);
+	std::list<int> l(tstack);
 	return 0;
 }
