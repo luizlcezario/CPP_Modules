@@ -1,15 +1,17 @@
 #ifndef DATA_HPP
 #define DATA_HPP
 
-#include <iostream>
-#include <string>
-#include <map>
+# include <ctime>
+# include <iostream>
+# include <string>
+# include <map>
 
 class Data
 {
 private:
 	std::map<std::string, double> data;
 	void parse(std::string filename);
+	static bool validate_date(std::string date);
 public:
 	Data(/* args */);
 	~Data();
@@ -19,3 +21,4 @@ public:
 	std::map<std::string, double> get_data();
 	std::string get_date(double value);
 };
+#endif

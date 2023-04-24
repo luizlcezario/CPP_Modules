@@ -4,6 +4,8 @@ CFLAGS			=	-Wall -Wextra -Werror -std=c++98 -g3
 
 HEADER			=	-I ./header 
 
+CLASS			= 	Data.cpp
+
 SRC				=	main.cpp $(addprefix class/, $(CLASS))
 
 SOURCES_DIR		=	./
