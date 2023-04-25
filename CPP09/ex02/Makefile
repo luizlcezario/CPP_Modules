@@ -1,10 +1,12 @@
-NAME			=	Easy
+NAME			=	PmergeMe
 CC				=	c++
 CFLAGS			=	-Wall -Wextra -Werror -std=c++98 -g3
 
+CLASS 			=	PmergeMe.cpp
+
 HEADER			=	-I ./header 
 
-SRC				=	main.cpp $(addprefix class/, $(CLASS))
+SRC				=	main.cpp list_sorted.cpp vector_sorted.cpp $(addprefix class/, $(CLASS))
 
 SOURCES_DIR		=	./
 
