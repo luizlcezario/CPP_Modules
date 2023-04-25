@@ -67,9 +67,10 @@ double BitcoinExchange::convert(std::string date, double value)
 	try {
 		final_value = this->data.get_value(date);
 	} catch (std::exception &e) {
-		if (date < this->data.get_data().begin()->first)
+		std::map<std::string, float> tmp(this->data.get_data());
+		if (date < tmp.begin()->first)
 			throw std::runtime_error("Date is too early.");
-		std::map<std::string, float>::iterator it = this->data.get_data().upper_bound(date);
+		std::map<std::string, float>::iterator it = tmp.upper_bound(date);
 		it--;
 		final_value = it->second;
 	}

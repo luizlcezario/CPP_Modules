@@ -2,7 +2,7 @@
 # include "PmergeMe.hpp"
 #include <sys/time.h>
 int main(int argc, char **argv) {
-	if (argc < 2 && argc > 3002) {
+	if (argc < 2 || argc > 3002) {
 		std::cout << "Usage: ./ex02 2 3 4 6 5 .." << std::endl << "with maximum 3000 numbers" << std::endl;
 		return 1;
 	}

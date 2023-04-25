@@ -32,7 +32,7 @@ public:
 };
 
 void mergeInsertionSort(std::vector<int>& v, int left, int right);
-void mergeInsertionSort(std::list<int>& lst, typename std::list<int>::iterator left, typename std::list<int>::iterator right);
+void mergeInsertionSort(std::list<int>& lst, std::list<int>::iterator left, std::list<int>::iterator right);
 int convert(std::string str) ;
 
 #endif
