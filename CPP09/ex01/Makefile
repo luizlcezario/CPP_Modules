@@ -1,7 +1,8 @@
-NAME			=	Easy
+NAME			=	RPN
 CC				=	c++
 CFLAGS			=	-Wall -Wextra -Werror -std=c++98 -g3
 
+CLASS			=	RPN.cpp
 HEADER			=	-I ./header 
 
 SRC				=	main.cpp $(addprefix class/, $(CLASS))
